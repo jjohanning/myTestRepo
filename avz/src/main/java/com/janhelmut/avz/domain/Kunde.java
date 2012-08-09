@@ -19,6 +19,8 @@ public class Kunde {
 
 	private List<Adresse> adressen;
 
+	private List<Ansprechpartner> ansprechpartner;
+
 	public String getName() {
 		return name;
 	}
@@ -49,5 +51,13 @@ public class Kunde {
 
 	public void setVersion(int version) {
 		this.version = version;
+	}
+
+	public List<Ansprechpartner> getAnsprechpartner() {
+		return ansprechpartner;
+	}
+
+	public void setAnsprechpartner(List<Ansprechpartner> ansprechpartner) {
+		this.ansprechpartner = ansprechpartner;
 	}
 }

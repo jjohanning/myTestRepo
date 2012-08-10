@@ -18,7 +18,7 @@
 		<h:inputText id="customerName"
 			value="#{customerHandler.customer.name}"></h:inputText>
 		<h:commandButton value="save" action="#{customerHandler.save}">
-
+			<f:ajax render="customerList" />
 		</h:commandButton>
 
 
@@ -26,7 +26,7 @@
 			<h4>CustomerList</h4>
 			<ul>
 				<ui:repeat value="#{customerHandler.customerList}" var="customer">
-					<li><h:outputLabel value="#{customer.name} }"></h:outputLabel></li>
+					<li><h:outputLabel value="#{customer.name}"></h:outputLabel></li>
 				</ui:repeat>
 			</ul>
 		</h:panelGroup>

@@ -24,11 +24,17 @@ public class CustomerHandler {
 
 	@PostConstruct
 	public void init() {
-		setCustomerList(customerService.listCustomer());
+		setCustomer(new Customer());
+		updateCustomerList();
+	}
+
+	public void updateCustomerList() {
+		this.setCustomerList(customerService.listCustomer());
 	}
 
 	public String save() {
 		customerService.saveCustomer(customer);
+		updateCustomerList();
 		return "";
 	}
 

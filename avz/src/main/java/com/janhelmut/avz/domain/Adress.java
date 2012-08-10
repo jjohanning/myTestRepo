@@ -4,8 +4,15 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Version;
 
+import com.janhelmut.avz.domain.util.BaseEntity;
+
 @Entity
-public class Adresse {
+public class Adress extends BaseEntity {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	private long id;

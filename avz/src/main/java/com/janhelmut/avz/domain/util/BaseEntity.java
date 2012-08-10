@@ -3,6 +3,8 @@ package com.janhelmut.avz.domain.util;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.PrePersist;
@@ -20,10 +22,13 @@ public class BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
 	@Version
 	private int version;
+
+	private String lastEditUser;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date persistDate;
@@ -55,6 +60,14 @@ public class BaseEntity implements Serializable {
 
 	public void setUpdateDate(Date updateDate) {
 		this.updateDate = updateDate;
+	}
+
+	public String getLastEditUser() {
+		return lastEditUser;
+	}
+
+	public void setLastEditUser(String lastEditUser) {
+		this.lastEditUser = lastEditUser;
 	}
 
 }

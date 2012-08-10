@@ -8,28 +8,22 @@
 	http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
 
 	<welcome-file-list>
-		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.xhtml</welcome-file>
 	</welcome-file-list>
 
 	<context-param>
 		<param-name>facelets.DEVELOPMENT</param-name>
 		<param-value>true</param-value>
 	</context-param>
+		<context-param>
+		<param-name>javax.faces.PROJECT_STAGE</param-name>
+		<param-value>Development</param-value>
+	</context-param>
+	
 	<context-param>
 		<param-name>javax.faces.INTERPRET_EMPTY_STRING_SUBMITTED_VALUES_AS_NULL</param-name>
 		<param-value>true</param-value>
 	</context-param>
-
-	<context-param>
-		<param-name>javax.faces.PROJECT_STAGE</param-name>
-		<param-value>Development</param-value>
-	</context-param>
-
-	<servlet-mapping>
-		<servlet-name>Faces Servlet</servlet-name>
-		<url-pattern>/faces/*</url-pattern>
-	</servlet-mapping>
-
 	<context-param>
 		<param-name>javax.faces.VALIDATE_EMPTY_FIELDS</param-name>
 		<param-value>true</param-value>

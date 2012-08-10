@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Hier muss noch ein Titel rein!</title>
+</h:head>
+
+<h:body>
+
+	<h4>Customer</h4>
+	<h:form>
+		<h:outputLabel for="customerName" value="Name:"></h:outputLabel>
+		<h:inputText id="customerName"
+			value="#{customerHandler.customer.name}"></h:inputText>
+		<h:commandButton value="save" action="#{customerHandler.save}">
+
+		</h:commandButton>
+
+
+		<h:panelGroup id="customerList" layout="block">
+			<h4>CustomerList</h4>
+			<ul>
+				<ui:repeat value="#{customerHandler.customerList}" var="customer">
+					<li><h:outputLabel value="#{customer.name} }"></h:outputLabel></li>
+				</ui:repeat>
+			</ul>
+		</h:panelGroup>
+	</h:form>
+</h:body>
+
+</html>

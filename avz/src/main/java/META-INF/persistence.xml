@@ -2,11 +2,23 @@
 <persistence version="2.0"
 	xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
-	<persistence-unit name="avz">
+	<persistence-unit name="avz" transaction-type="JTA">
 
-		<jta-data-source>DATASOURCE</jta-data-source>
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+
+		<jta-data-source>jdbc/avz</jta-data-source>
 
 		<properties>
+			<property name="eclipselink.logging.level" value="FINE" />
+			<property name="eclipselink.logging.parameters" value="true" />
+			<property name="eclipselink.application-location"
+				value="C:\dev\Eclipse\workspace\myTestRepo\avz\target\sql" />
+			<property name="eclipselink.ddl-generation" value="drop-and-create-tables" />
+			<property name="eclipselink.create-ddl-jdbc-file-name"
+				value="create.sql" />
+			<property name="eclipselink.drop-ddl-jdbc-file-name" value="drop.sql" />
+			<property name="eclipselink.ddl-generation.output-mode"
+				value="file" />
 		</properties>
 	</persistence-unit>
 </persistence>

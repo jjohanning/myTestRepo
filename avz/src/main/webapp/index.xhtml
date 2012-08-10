@@ -18,7 +18,7 @@
 		<h:inputText id="customerName"
 			value="#{customerHandler.customer.name}"></h:inputText>
 		<h:commandButton value="save" action="#{customerHandler.save}">
-			<f:ajax render="customerList" />
+			<f:ajax execute="@form" render="customerList" />
 		</h:commandButton>
 
 

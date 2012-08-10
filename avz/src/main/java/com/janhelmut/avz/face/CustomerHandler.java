@@ -1,5 +1,6 @@
 package com.janhelmut.avz.face;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -13,9 +14,14 @@ import com.janhelmut.avz.service.CustomerService;
 
 @Named
 @RequestScoped
-public class CustomerHandler {
+public class CustomerHandler implements Serializable {
 
-	private Customer customer;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	private Customer customer = new Customer();
 
 	private List<Customer> customerList;
 
@@ -24,17 +30,12 @@ public class CustomerHandler {
 
 	@PostConstruct
 	public void init() {
-		setCustomer(new Customer());
-		updateCustomerList();
-	}
-
-	public void updateCustomerList() {
 		this.setCustomerList(customerService.listCustomer());
 	}
 
 	public String save() {
 		customerService.saveCustomer(customer);
-		updateCustomerList();
+		this.setCustomerList(customerService.listCustomer());
 		return "";
 	}
 
